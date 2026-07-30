@@ -71,6 +71,21 @@ animation:slideRight 1s ease;
 }
 
 .hero-img img{
+  .hero-img img{
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-15px);
+}
+100%{
+transform:translateY(0);
+}
+}
 width:320px;
 height:320px;
 object-fit:cover;
@@ -151,9 +166,10 @@ text-align:center;
 transition:.3s;
 }
 
-.skill:hover{
-transform:translateY(-8px);
-}
+  .skill:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(56,189,248,.5);
+  }
 
 .contact{
 max-width:700px;
@@ -241,6 +257,11 @@ opacity:1;
 transform:translateY(0);
    }
   }
+  .about-card:hover,
+.contact-box:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(56,189,248,.5);
+  }
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -327,7 +348,7 @@ Lahore, Pakistan
   </section>
 </section>
 
-<section id="projects">
+<section id="projects" class="reveal">
 <h2 class="title">Projects</h2>
 
 <div class="skills">
@@ -341,7 +362,7 @@ Lahore, Pakistan
 
 </section>
 
-  <section id="skills">
+  <section id="skills" class="reveal">
 <h2 class="title">Technical Skills</h2>
 
 <div class="skills">
@@ -385,7 +406,7 @@ Lahore, Pakistan
 </div>
   </section>
   
-  <section id="achievements">
+  <section id="achievements" class="reveal">
 <h2 class="title">Achievements</h2>
 
 <div class="skills">
@@ -405,7 +426,7 @@ Lahore, Pakistan
 </div>
   </section>
   
-  <section id="learning">
+  <section id="learning" class="reveal">
 <h2 class="title">Learning Journey</h2>
 
 <div class="skills">
@@ -421,7 +442,7 @@ Lahore, Pakistan
 </div>
   </section>
   
-  <section id="socials">
+  <section id="socials" class="reveal">
 <h2 class="title">Social Media</h2>
 
 <div class="skills">
@@ -449,7 +470,7 @@ Lahore, Pakistan
 </div>
   </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
 <h2 class="title">Contact</h2>
 <div class="contact-box contact">
   <form action="https://formspree.io/f/mlgqzloj" method="POST">
@@ -505,6 +526,25 @@ setTimeout(type,1500);
 setTimeout(type,100);
 }
 })();
+  </script>
+  <script>
+function reveal(){
+let reveals=document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight=window.innerHeight;
+let elementTop=reveals[i].getBoundingClientRect().top;
+let elementVisible=100;
+
+if(elementTop<windowHeight-elementVisible){
+reveals[i].classList.add("active");
+}
+}
+}
+
+window.addEventListener("scroll",reveal);
+reveal();
   </script>
 </body>
 </html>
