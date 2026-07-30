@@ -214,6 +214,22 @@ height:100%;
 background:#38bdf8;
 border-radius:10px;
   }
+  .skill,
+.about-card,
+.contact-box{
+animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+  }
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -233,7 +249,8 @@ border-radius:10px;
 
 <section class="hero" id="home">
 <div class="hero-text">
-<h1>Hi, I'm <span class="typing">Muhammad Afzaal</span></h1>
+<h1>Hi, I'm Muhammad Afzaal</h1>
+<h2 class="typing"></h2>
 <p class="subtitle">BSCS Student • Future Software Engineer</p>
 <p class="description">
 Passionate about Programming, Artificial Intelligence,
@@ -247,7 +264,29 @@ Web Development and Technology.
 <img src="profile.jpg" alt="Muhammad Afzaal">
 </div>
 </section>
+  
+<section id="stats">
+<h2 class="title">Statistics</h2>
 
+<div class="skills">
+
+<div class="skill">
+<h2>1+</h2>
+<p>Portfolio Projects</p>
+</div>
+
+<div class="skill">
+<h2>6+</h2>
+<p>Technical Skills</p>
+</div>
+
+<div class="skill">
+<h2>2025</h2>
+<p>Portfolio Launch</p>
+</div>
+
+</div>
+</section>
 <section id="about">
 <h2 class="title">About Me</h2>
 <div class="about">
@@ -312,6 +351,42 @@ Software Development, AI, Web Development and modern technologies.
 </div>
 </section>
   
+  <section id="achievements">
+<h2 class="title">Achievements</h2>
+
+<div class="skills">
+
+<div class="skill">
+🏆 Portfolio Website Created
+</div>
+
+<div class="skill">
+💻 Learning Programming
+</div>
+
+<div class="skill">
+🤖 Exploring Artificial Intelligence
+</div>
+
+</div>
+  </section>
+  
+  <section id="learning">
+<h2 class="title">Learning Journey</h2>
+
+<div class="skills">
+
+<div class="skill">HTML & CSS</div>
+
+<div class="skill">JavaScript</div>
+
+<div class="skill">Python</div>
+
+<div class="skill">Artificial Intelligence</div>
+
+</div>
+  </section>
+  
   <section id="socials">
 <h2 class="title">Social Media</h2>
 
@@ -331,6 +406,12 @@ Software Development, AI, Web Development and modern technologies.
 <h3>LinkedIn</h3>
 </div>
 
+  <div class="skill">
+<a href="https://www.facebook.com/profile.php?id=61569039121688" target="_blank">
+<i class="fab fa-facebook" style="font-size:60px;color:#1877F2;"></i>
+</a>
+<h3>Facebook</h3>
+  </div>
 </div>
   </section>
 
@@ -360,6 +441,36 @@ Email: raathafzaal@gmail.com
 © 2025 Muhammad Afzaal | Portfolio
 
   </footer>
-  
+
+  <script>
+const texts=[
+"BSCS Student",
+"Web Developer",
+"Future Software Engineer",
+"AI Enthusiast"
+];
+
+let count=0;
+let index=0;
+let currentText="";
+let letter="";
+
+(function type(){
+if(count===texts.length) count=0;
+
+currentText=texts[count];
+letter=currentText.slice(0,++index);
+
+document.querySelector(".typing").textContent=letter;
+
+if(letter.length===currentText.length){
+count++;
+index=0;
+setTimeout(type,1500);
+}else{
+setTimeout(type,100);
+}
+})();
+  </script>
 </body>
 </html>
