@@ -255,6 +255,73 @@ transform:translateY(0);
 transform:translateY(-10px);
 box-shadow:0 0 30px rgba(56,189,248,.5);
   }
+    /* Menu Button */
+.menu-btn{
+    font-size:30px;
+    cursor:pointer;
+    color:#38bdf8;
+    display:none;
+}
+
+/* Sidebar */
+.sidebar{
+    position:fixed;
+    top:0;
+    right:-280px;
+    width:280px;
+    height:100%;
+    background:#1e293b;
+    transition:0.4s;
+    z-index:2000;
+    padding-top:70px;
+}
+
+.sidebar.active{
+    right:0;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    font-size:18px;
+}
+
+.sidebar a:hover{
+    background:#38bdf8;
+    color:black;
+}
+
+.close-btn{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:35px;
+    cursor:pointer;
+}
+
+/* Desktop */
+@media (min-width:901px){
+    nav{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:none;
+    }
+}
+
+/* Mobile */
+@media (max-width:900px){
+    nav{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+}
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <meta charset="UTF-8">
@@ -552,5 +619,19 @@ reveals[i].classList.add("active");
 window.addEventListener("scroll",reveal);
 reveal();
   </script>
+    <script>
+function openMenu() {
+    document.getElementById("sidebar").classList.add("active");
+}
+
+function closeMenu() {
+    document.getElementById("sidebar").classList.remove("active");
+}
+
+// Close menu after clicking a link
+document.querySelectorAll("#sidebar a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+});
+</script>
 </body>
 </html>
